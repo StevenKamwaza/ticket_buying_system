@@ -118,7 +118,7 @@ function App(props: Props) {
       </Box>
       <Box component="main" sx={{ p: 3 }}>
         <Toolbar />
-        {/* <Home/> */}
+        <Home/>
       </Box>
     </Box>
   );

@@ -1,168 +1,132 @@
-import Avatar from "@material-ui/core/Avatar/Avatar";
+import React from 'react';
+import Color from 'color';
+import GoogleFont from 'react-google-font-loader';
+import { makeStyles } from '@material-ui/core/styles';
+import NoSsr from '@material-ui/core/NoSsr';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import { useFourThreeCardMediaStyles } from '@mui-treasury/styles/cardMedia/fourThree';
 
-/* eslint-disable max-len,no-script-url,jsx-a11y/anchor-is-valid */
-import React from "react";
-import Card from "@material-ui/core/Card";
-import CardMedia from "@material-ui/core/CardMedia";
-import CardContent from "@material-ui/core/CardContent";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
-import Icon from "@material-ui/core/Icon";
+const useGridStyles = makeStyles(({ breakpoints }) => ({
+  root: {
+    [breakpoints.up('md')]: {
+      justifyContent: 'center',
+    },
+  },
+}));
 
-const faces = [
-  "http://i.pravatar.cc/300?img=6",
-  "http://i.pravatar.cc/300?img=7",
-  "http://i.pravatar.cc/300?img=8",
-  "http://i.pravatar.cc/300?img=9"
-];
+const useStyles = makeStyles(() => ({
+  actionArea: {
+    borderRadius: 16,
+    transition: '0.2s',
+    '&:hover': {
+      transform: 'scale(1.1)',
+    },
+  },
+  card: ({ color }) => ({
+    minWidth: 256,
+    borderRadius: 16,
+    boxShadow: 'none',
+    '&:hover': {
+      boxShadow: `0 6px 12px 0 ${Color(color)
+        .rotate(-12)
+        .darken(0.2)
+        .fade(0.5)}`,
+    },
+  }),
+  content: ({ color }) => {
+    return {
+      backgroundColor: color,
+      padding: '1rem 1.5rem 1.5rem',
+    };
+  },
+  title: {
+    fontFamily: 'Keania One',
+    fontSize: '2rem',
+    color: '#fff',
+    textTransform: 'uppercase',
+  },
+  subtitle: {
+    fontFamily: 'Montserrat',
+    color: '#fff',
+    opacity: 0.87,
+    marginTop: '2rem',
+    fontWeight: 500,
+    fontSize: 14,
+  },
+}));
 
-const ReviewCard01 = () => (
-  <Card className={"MuiReviewCard--01"}>
-    <CardMedia
-      component={"img"}
-      className={"MuiCardMedia-root"}
-      src={
-        "https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"
-      }
-    />
-    <CardContent className={"MuiCardContent-root"}>
-      <div className={"ContentHead"}>
-        <Typography
-          className={"MuiTypography--heading"}
-          variant={"h6"}
-          gutterBottom
-        >
-          Colloseo
-        </Typography>
-        <IconButton className={"MuiIconButton-root"}>
-          <Icon>favorite</Icon>
-        </IconButton>
-      </div>
-      <Typography
-        className={"MuiTypography--subheading"}
-        color={"textSecondary"}
-        gutterBottom
-      >
-        <Icon className={"MuiIcon--text"}>location_on</Icon> Rome
-      </Typography>
-      <div className={"ContentRating"}>
-        <Icon className={"MuiIcon--starred"}>star_rounded</Icon>
-        <Icon className={"MuiIcon--starred"}>star_rounded</Icon>
-        <Icon className={"MuiIcon--starred"}>star_rounded</Icon>
-        <Icon className={"MuiIcon--starred"}>star_rounded</Icon>
-        <Icon>star_rounded</Icon>
-        <Typography className={"MuiTypography--rating"} inline>
-          4.0
-        </Typography>
-      </div>
-      <Typography gutterBottom color={"textSecondary"}>
-        Talking about travelling or new jobs, many people often think of change
-        of environment...
-      </Typography>
-      <div className={"ContentTail"}>
-        {faces.map(face => (
-          <Avatar className={"MuiAvatar-root"} key={face} src={face} />
-        ))}
-        <Typography
-          className={"MuiTypography--reviewer"}
-          color={"textSecondary"}
-        >
-          +420
-        </Typography>
-        <IconButton className={"MuiIconButton-root"}>
-          <Icon>more_horiz</Icon>
-        </IconButton>
-      </div>
-    </CardContent>
-  </Card>
-);
-
-ReviewCard01.getTheme = muiBaseTheme => ({
-  MuiCard: {
-    root: {
-      "&.MuiReviewCard--01": {
-        marginBottom: 200,
-        maxWidth: 304,
-        margin: "auto",
-        overflow: "initial",
-        position: "relative",
-        transition: "0.3s cubic-bezier(.47,1.64,.41,.8)",
-        boxShadow: "none",
-        borderRadius: 0,
-        "&:hover": {
-          "& .MuiTypography--explore": {
-            transform: "scale(1.2)"
-          }
-        },
-        "& button": {
-          marginLeft: 0
-        },
-        "& .MuiCardMedia-root": {
-          height: "100%"
-        },
-        "& .MuiCardContent-root": {
-          boxShadow: "0 16px 40px -12.125px rgba(0,0,0,0.3)",
-          borderRadius: muiBaseTheme.spacing.unit / 2,
-          margin: `0 ${muiBaseTheme.spacing.unit * 2}px`,
-          backgroundColor: "#ffffff",
-          position: "absolute",
-          top: "60%",
-          padding: muiBaseTheme.spacing.unit * 3,
-          textAlign: "left",
-          "& .ContentHead": {
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between"
-          },
-          "& .MuiIcon--text": {
-            fontSize: 14,
-            color: muiBaseTheme.palette.grey[500]
-          },
-          "& .ContentRating": {
-            marginBottom: muiBaseTheme.spacing.unit / 2,
-            "& svg, .material-icons": {
-              fontSize: 20,
-              color: muiBaseTheme.palette.grey[300]
-            },
-            "& .MuiIcon--starred": {
-              color: "#ffbb00"
-            },
-            "& .MuiTypography--rating": {
-              verticalAlign: "top",
-              fontWeight: "bold",
-              fontSize: 16,
-              marginLeft: muiBaseTheme.spacing.unit * 2
-            }
-          },
-          "& .MuiAvatar-root": {
-            width: 32,
-            height: 32,
-            display: "inline-block",
-            border: "2px solid white",
-            "&:not(:first-of-type)": {
-              marginLeft: -muiBaseTheme.spacing.unit * 1.5
-            }
-          },
-          "& .ContentTail": {
-            display: "flex",
-            alignItems: "center",
-            flexWrap: "wrap",
-            "& .MuiTypography--reviewer": {
-              marginLeft: muiBaseTheme.spacing.unit,
-              marginRight: "auto"
-            }
-          }
-        },
-        "& .MuiIconButton-root": {
-          padding: muiBaseTheme.spacing.unit
-        }
-      }
-    }
-  }
-});
-ReviewCard01.metadata = {
-  name: "Review Card I",
-  description: "Commonly found in traveling guide"
+const CustomCard = ({ classes, image, title, subtitle }) => {
+  const mediaStyles = useFourThreeCardMediaStyles();
+  return (
+    <CardActionArea className={classes.actionArea}>
+      <Card className={classes.card}>
+        <CardMedia classes={mediaStyles} image={image} />
+        <CardContent className={classes.content}>
+          <Typography className={classes.title} variant={'h2'}>
+            {title}
+          </Typography>
+          <Typography className={classes.subtitle}>{subtitle}</Typography>
+        </CardContent>
+      </Card>
+    </CardActionArea>
+  );
 };
 
-export default ReviewCard01;
+export const SolidGameCardDemo = React.memo(function SolidGameCard() {
+  const gridStyles = useGridStyles();
+  const styles = useStyles({ color: '#203f52' });
+  const styles2 = useStyles({ color: '#4d137f' });
+  const styles3 = useStyles({ color: '#ff9900' });
+  const styles4 = useStyles({ color: '#34241e' });
+  
+  return (
+    <>
+      <Grid classes={gridStyles} container spacing={4} wrap={'nowrap'}>
+        <Grid item>
+          <CustomCard
+            classes={styles}
+            title={'Dota 2'}
+            subtitle={'Be a Legend!'}
+            image={
+              'https://steamcdn-a.akamaihd.net/apps/dota2/images/blog/play/dota_heroes.png'
+            }
+          />
+        </Grid>
+        <Grid item>
+          <CustomCard
+            classes={styles2}
+            title={'Fortnite'}
+            subtitle={'Time to choose side!'}
+            image={
+              'https://progameguides.com/wp-content/uploads/2019/10/fortnite-outfit-scratch.jpg'
+            }
+          />
+        </Grid>
+        <Grid item>
+          <CustomCard
+            classes={styles3}
+            title={'Overwatch'}
+            subtitle={'What are you waiting?'}
+            image={'https://images5.alphacoders.com/690/thumb-1920-690653.png'}
+          />
+        </Grid>
+        <Grid item>
+          <CustomCard
+            classes={styles4}
+            title={'PUBG'}
+            subtitle={'Are you ready?'}
+            image={
+              'https://www.itp.net/public/styles/full_img_sml/public/images/2019/05/27/44485-pubg_base1.jpg?itok=EF911Xan'
+            }
+          />
+        </Grid>
+      </Grid>
+    </>
+  );
+});
+export default SolidGameCardDemo
