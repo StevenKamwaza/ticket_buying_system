@@ -50,11 +50,12 @@ const useStyles = makeStyles(() => ({
       fontFamily: 'Montserrat',
       color: '#fff',
       opacity: 0.87,
-      marginTop: '2rem',
+      marginTop: '1.5rem',
       fontWeight: 500,
       fontSize: 14,
     },
     buynow: {
+      marginTop: '1rem',
       background: 'linear-gradient(to top, #BDC581, #82e7fe)',
       '& > *': {
         textTransform: 'none !important',

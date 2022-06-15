@@ -118,6 +118,9 @@ function App(props: Props) {
       </Box>
       <Box component="main" sx={{ p: 3 }}>
         <Toolbar />
+        <Typography weight={'bold'} variant={'h4'} align={'center'} bottomSpace={'medium'}>
+          Buy Your ticket to watch the upcoming game!
+        </Typography>
         <Home/>
       </Box>
     </Box>
