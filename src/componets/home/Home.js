@@ -41,8 +41,8 @@ const useStyles = makeStyles(() => ({
       };
     },
     title: {
-      fontFamily: 'Keania One',
-      fontSize: '1.5rem',
+      fontFamily: 'Oxygen',
+      fontSize: 17,
       color: '#fff',
       textTransform: 'uppercase',
     },
