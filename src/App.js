@@ -14,12 +14,9 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Home from './componets/home/Home';
+import Categories from './componets/pages/Categories';
 
 interface Props {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window?: () => Window;
 }
 
@@ -36,8 +33,8 @@ function App(props: Props) {
   // sidebar menu
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        BuyME Ticket
+      <Typography variant="h5" sx={{ my: 2 }}>
+        E-Ticket
       </Typography>
       <Divider />
 
@@ -82,7 +79,7 @@ function App(props: Props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            BuyMETicket
+            E-Ticket
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             
@@ -122,6 +119,7 @@ function App(props: Props) {
           Buy Your ticket to watch the upcoming game!
         </Typography>
         <Home/>
+        <Categories/>
       </Box>
     </Box>
   );
