@@ -17,6 +17,8 @@ const useGridStyles =  makeStyles(({ breakpoints }) => ({
 
 const useStyles = makeStyles(() => ({
     actionArea: {
+      margin:"8rem",
+      display: "flex",
       borderRadius: 16,
       transition: '0.2s',
       '&:hover': {
@@ -41,8 +43,8 @@ const useStyles = makeStyles(() => ({
       };
     },
     title: {
-      fontFamily: 'Oxygen',
-      fontSize: 17,
+      // fontFamily: 'Oxygen',
+      // fontSize: 17,
       color: '#fff',
       textTransform: 'uppercase',
     },
@@ -71,7 +73,6 @@ const CustomCard = ({ classes, image, title, subtitle }) => {
         <Card className={classes.card}>
           <CardMedia 
             classes={mediaStyles} 
-            height="140"
             image={image} />
           <CardContent className={classes.content}>
             <Typography className={classes.title} variant={'h3'}>

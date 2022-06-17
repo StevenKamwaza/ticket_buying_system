@@ -16,6 +16,18 @@ import Button from '@mui/material/Button';
 import Home from './componets/home/Home';
 import Categories from './componets/pages/Categories';
 
+function Copyright(props) {
+  return (
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+      {'Copyright © '}
+      <Link color="inherit" href="https://mysoccerticket.vercel.app/">
+        Che-Steve Tech
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 interface Props {
   window?: () => Window;
 }
@@ -118,9 +130,11 @@ function App(props: Props) {
         <Typography weight={'bold'} variant={'h4'} align={'center'} bottomSpace={'medium'}>
           Buy Your ticket to watch the upcoming game!
         </Typography>
+        
         <Home/>
         <Categories/>
       </Box>
+      <Copyright sx={{ mt: 8, mb: 4 }} />
     </Box>
   );
 }
